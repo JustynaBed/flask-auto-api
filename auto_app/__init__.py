@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 from auto_app import autos
-#
-# @app.route('/')
-# def index():
-#     return 'Hello from flask'
+
+@app.route('/')
+def index():
+    return 'Hello from flask'
