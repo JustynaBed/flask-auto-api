@@ -9,4 +9,4 @@ app = Flask(__name__)
 from auto_app import autos
 @app.route('/')
 def index():
-    return 'Hello from flask'
+    return 'Hello from flask2'
