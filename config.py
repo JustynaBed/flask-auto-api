@@ -1,11 +1,10 @@
 import os
-from dotenv import load_dotenv
+from dotenv import dotenv_values
 from pathlib import Path
 
 base_dir = Path(__file__).resolve().parent
 env_file = base_dir / '.env'
-load_dotenv(env_file)
-print(load_dotenv(env_file))
+dotenv_values(env_file)
 
 
 class Config:
