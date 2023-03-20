@@ -1,10 +1,14 @@
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()
-print('sssx', os.getenv('SECRET_KEY'))
+base_dir = Path(__file__).resolve().parent
+env_file = base_dir / '.env'
+load_dotenv(env_file)
+print(load_dotenv(env_file))
+
 
 class Config:
     DEBUG = True
-    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
