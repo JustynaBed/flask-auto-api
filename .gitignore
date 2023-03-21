@@ -2,4 +2,4 @@
 venv/
 .idea/
 __pycache__/
-auto_app/__pycache__/
+/auto_app/__pycache__/
