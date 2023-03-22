@@ -1,6 +1,10 @@
-from auto_app import create_app
+from auto_app import app
+
 # if __name__ == '__main__':
 #     app.run()
 
-app = create_app()
-
+# from auto_app import create_app
+# # if __name__ == '__main__':
+# #     app.run()
+#
+# app = create_app()
