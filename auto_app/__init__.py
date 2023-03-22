@@ -9,11 +9,11 @@ app.config.from_object(Config)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-with app.app_context():
-    results = db.session.execute(text('show databases'))
-for row in results:
-    print(row)
+#
+# with app.app_context():
+#     results = db.session.execute(text('show databases'))
+# for row in results:
+#     print(row)
 
 
 from auto_app import autos
