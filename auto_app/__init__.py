@@ -3,11 +3,10 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 # from sqlalchemy.sql import text
 # from flask_migrate import Migrate
-
-app = Flask(__name__)
-app.config.from_object(Config)
+# app = Flask(__name__)
+# app.config.from_object(Config)
 #
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 # migrate = Migrate(app, db)
 #
 # with app.app_context():
@@ -16,10 +15,20 @@ db = SQLAlchemy(app)
 #     print(row)
 
 
-from auto_app import autos
-from auto_app import models
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
 
+    db.init_app(app)
+    # migrate.init_app(app, db)
+    from auto_app.autos import autos_bp
+    app.register_blueprint(autos_bp)
 
-@app.route('/')
-def index():
-    return 'Hello from flask2'
+    return app
+
+# from auto_app import autos
+# from auto_app import models
+
+# @app.route('/')
+# def index():
+#     return 'Hello from flask2'

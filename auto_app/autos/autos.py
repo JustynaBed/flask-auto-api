@@ -1,8 +1,9 @@
 from flask import jsonify
-from auto_app import app
+# from auto_app import app
+from auto_app.autos import autos_bp
 
 
-@app.route('/api/v1/autos', methods=['GET'])
+@autos_bp.route('/api/v1/autos', methods=['GET'])
 def get_autos():
     return jsonify({
         'success': True,
@@ -10,7 +11,7 @@ def get_autos():
     })
 
 
-@app.route('/api/v1/autos', methods=['POST'])
+@autos_bp.route('/api/v1/autos', methods=['POST'])
 def create_auto():
     return jsonify({
         'success': True,
