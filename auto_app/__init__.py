@@ -26,6 +26,7 @@ migrate = Migrate(app, db)
 #     return app
 from auto_app import autos
 from auto_app import models
+from auto_app import db_manage_commands
 
 @app.route('/')
 def index():
