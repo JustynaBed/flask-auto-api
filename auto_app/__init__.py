@@ -3,9 +3,12 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 # from sqlalchemy.sql import text
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(Config)
+CORS(app)
+
 #
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
