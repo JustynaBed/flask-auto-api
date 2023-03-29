@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 
-app = Flask(__name__, template_folder='../dist')
+app = Flask(__name__, template_folder='templates')
 app.config.from_object(Config)
 CORS(app)
 
@@ -33,5 +33,5 @@ from auto_app import db_manage_commands
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
