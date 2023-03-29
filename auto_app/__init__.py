@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 # from sqlalchemy.sql import text
 from flask_migrate import Migrate
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../dist')
 app.config.from_object(Config)
 CORS(app)
 
@@ -33,4 +33,5 @@ from auto_app import db_manage_commands
 
 @app.route('/')
 def index():
-    return 'Hello from flask2'
+    return render_template('index.html')
+

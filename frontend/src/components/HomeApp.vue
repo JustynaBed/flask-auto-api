@@ -62,7 +62,7 @@ export default {
     }
   },
   created () {
-    this.getAutos()
+    // this.getAutos()
   }
 }
 </script>

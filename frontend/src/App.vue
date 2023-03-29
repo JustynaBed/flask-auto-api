@@ -1,28 +1,18 @@
 <template>
   <div>
-    <NavbarApp/>
-    <router-view/>
+    <h1>Vue App </h1>
+    <!-- <NavbarApp/>
+    <router-view/> -->
   </div>
 </template>
 
 <script>
-import NavbarApp from './components/NavbarApp.vue'
+// import NavbarApp from './components/NavbarApp.vue'
 
 export default {
   name: 'App',
   components: {
-    NavbarApp
+    // NavbarApp
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
