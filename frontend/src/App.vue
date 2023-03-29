@@ -1,18 +1,18 @@
 <template>
   <div>
     <h1>Vue App </h1>
-    <!-- <NavbarApp/>
-    <router-view/> -->
+    <NavbarApp/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-// import NavbarApp from './components/NavbarApp.vue'
+import NavbarApp from './components/NavbarApp.vue'
 
 export default {
   name: 'App',
   components: {
-    // NavbarApp
+    NavbarApp
   }
 }
 </script>

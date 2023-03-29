@@ -4,7 +4,7 @@
     <ul>
       <li v-for="auto in autos" :key="auto.id">{{auto.brand}}</li>
     </ul>
-    <form @submit="addAuto">
+    <form @submit.prevent="addAuto">
       <label>Brand:
         <input type="text" v-model="brand">
       </label>
@@ -62,7 +62,7 @@ export default {
     }
   },
   created () {
-    // this.getAutos()
+    this.getAutos()
   }
 }
 </script>
