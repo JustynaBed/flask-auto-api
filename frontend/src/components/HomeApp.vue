@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <h1>Home v3</h1>
     <ul>
-      <li v-for="auto in autos" :key="auto.id">{{auto.brand}}</li>
+      <li v-for="auto in autos" :key="auto.id">
+      BRABD: {{auto.brand}} MODEL: {{auto.model}} YEAR: {{auto.year}}
+      </li>
     </ul>
     <form @submit.prevent="addAuto">
       <label>Brand:
@@ -20,6 +22,8 @@
 </template>
 
 <script>
+// import axios from 'axios'
+import * as API from '../api'
 export default {
   name: 'HomeApp',
   data () {
@@ -31,38 +35,23 @@ export default {
     } 
   },
   methods: {
+      getAutos() {
+      return API.fetchautos()
+      .then(response => this.autos = response.data) 
+    },
     addAuto () {
-      fetch('http://127.0.0.1:5000/api/v1/autos', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
+      return API.createAuto({
           brand: this.brand, 
           model: this.model, 
           year: this.year
-        })
-      })
-      .then(resp => resp.json())
-      .catch(error => console.log(error))
-    },
-    getAutos() {
-      fetch('http://127.0.0.1:5000/api/v1/autos', {
-        method: 'GET',
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(resp => resp.json())
-      .then(data => 
-      this.autos = data.data
-      // console.log(data.data)
-      )
-      .catch(error => console.log(error))
+      }).then(response => console.log(response))
     }
   },
   created () {
     this.getAutos()
-  }
+  },
+    mounted() {
+    console.log('mounted', process.env.VUE_APP_API_URL)
+  },
 }
 </script>
